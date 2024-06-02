@@ -1,6 +1,8 @@
 import { Iterable, Pre, Type, isFunction } from "@everyonesoftware/base-typescript";
-import { Test, TestRunner, TestSkip } from "../sources";
 import { AssertTest } from "./assertTest";
+import { TestRunner } from "./testRunner";
+import { Test } from "./test";
+import { TestSkip } from "./testSkip";
 
 /**
  * A {@link TestRunner} implementation that passes through to mocha.
