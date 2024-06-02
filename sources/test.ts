@@ -9,7 +9,7 @@ export abstract class Test
      * Fail the current test with the provided message.
      * @param message The message that explains why this test failed.
      */
-    public abstract fail(message?: string): void;
+    public abstract fail(message: string): never;
 
     /**
      * Assert that the provided value is undefined;

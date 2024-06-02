@@ -1,12 +1,17 @@
-import * as assert from "assert";
+import { Pre } from "@everyonesoftware/base-typescript";
+import { Test } from "./test";
 
-import { Test } from "../sources";
+import * as assert from "assert";
 
 /**
  * A {@link Test} type that uses the standard "assert" module to make assertions.
  */
 export class AssertTest implements Test
 {
+    protected constructor()
+    {
+    }
+
     /**
      * Create a new {@link AssertTest} object.
      */
@@ -15,8 +20,10 @@ export class AssertTest implements Test
         return new AssertTest();
     }
 
-    public fail(message?: string): void
+    public fail(message: string): never
     {
+        Pre.condition.assertNotEmpty(message, "message");
+
         assert.fail(message);
     }
 
