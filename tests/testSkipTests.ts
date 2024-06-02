@@ -1,4 +1,4 @@
-import { MochaTestRunner, Test, TestRunner, TestSkip } from "../sources";
+import { Test, TestRunner, TestSkip } from "../sources";
 
 export function test(runner: TestRunner): void
 {
@@ -64,4 +64,4 @@ export function test(runner: TestRunner): void
         });
     });
 }
-test(MochaTestRunner.create());
+test(TestRunner.create());
