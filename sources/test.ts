@@ -1,19 +1,10 @@
 import { Pre } from "@everyonesoftware/base-typescript";
-import { AssertTest } from "./assertTest";
 
 /**
  * A type that can be used to make assertions during a test.
  */
 export abstract class Test
 {
-    /**
-     * Create an instance of the {@link Test} default implementation.
-     */
-    public static create(): Test
-    {
-        return AssertTest.create();
-    }
-
     /**
      * Fail the current test with the provided message.
      * @param message The message that explains why this test failed.
