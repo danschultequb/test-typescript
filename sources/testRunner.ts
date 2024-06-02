@@ -2,21 +2,12 @@
 import { Iterable, Pre, Type, andList, escapeAndQuote, getName, getParameterCount, isFunction, isString } from "@everyonesoftware/base-typescript";
 import { Test } from "./test";
 import { TestSkip } from "./testSkip";
-import { MochaTestRunner } from "./mochaTestRunner";
 
 /**
  * A type that can be used to run tests.
  */
 export abstract class TestRunner
 {
-    /**
-     * Create an instance of the {@link TestRunner} default implementation.
-     */
-    public static create(): TestRunner
-    {
-        return MochaTestRunner.create();
-    }
-
     /**
      * Get a {@link string} that concatenates the {@link string} representation of each
      * of the provided values into an "and-list".
