@@ -48,6 +48,10 @@ export abstract class TestRunner
         {
             result = escapeAndQuote(value);
         }
+        else if (value === undefined)
+        {
+            result = "undefined";
+        }
         else
         {
             result = JSON.stringify(value);
