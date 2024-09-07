@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/everyonesoftware/test-typescript"
   },
-  "version": "7.0.0",
+  "version": "8.0.0",
   "module": "outputs/package/index.esm.js",
   "main": "outputs/package/index.js",
   "types": "outputs/package/index.d.ts",
@@ -20,14 +20,16 @@
   ],
   "scripts": {
     "build": "tsc && eslint sources tests --ext ts --max-warnings 0 && node ./package.js",
+    "clean": "rimraf outputs",
     "just-tests": "c8 mocha --spec=outputs/tests",
     "test": "npm run build && npm run just-tests"
   },
   "dependencies": {
-    "@everyonesoftware/base-typescript": "20.0.0"
+    "@everyonesoftware/base-typescript": "23.0.0"
   },
   "devDependencies": {
-    "@everyonesoftware/mocha-typescript": "6.0.0",
+    "@everyonesoftware/test-typescript": "7.0.0",
+    "@everyonesoftware/mocha-typescript": "7.0.0",
     "@types/node": "20.14.10",
     "@typescript-eslint/eslint-plugin": "7.15.0",
     "@typescript-eslint/parser": "7.15.0",
@@ -36,7 +38,8 @@
     "eslint": "8.56.0",
     "npm-dts": "1.3.12",
     "source-map-support": "0.5.21",
-    "typescript": "5.5.3"
+    "typescript": "5.5.3",
+    "rimraf": "6.0.1"
   },
   "mocha": {
       "color": true,
