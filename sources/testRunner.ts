@@ -25,7 +25,7 @@ export abstract class TestRunner
      */
     public static andList(runner: TestRunner, values: unknown[] | Iterable<unknown>): string
     {
-        return andList(values.map(runner.toString));
+        return andList(values.map((value: unknown) => runner.toString(value)));
     }
 
     /**
