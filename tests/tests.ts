@@ -4,5 +4,5 @@ import { TestRunner } from "../sources";
 
 export function createTestRunner(): TestRunner
 {
-    return MochaTestRunner.create();
+    return (MochaTestRunner.create() as unknown) as TestRunner;
 }
