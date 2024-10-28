@@ -1,4 +1,4 @@
-import { Pre } from "@everyonesoftware/base-typescript";
+import { isUndefinedOrNull, Pre, Type } from "@everyonesoftware/base-typescript";
 
 /**
  * A type that can be used to make assertions during a test.
@@ -185,4 +185,38 @@ export abstract class Test
      * @param expectedError The expected {@link Error}.
      */
     public abstract assertThrowsAsync(action: () => Promise<unknown>, expectedError: Error): Promise<void>;
+
+    /**
+     * Assert that the provided value is an instance of the provided {@link Type}.
+     * @param value The value to check.
+     * @param type The {@link Type} to check.
+     * @param expression The expression that produced the value.
+     * @param message An optional error message.
+     */
+    public assertInstanceOf<T>(value: unknown, type: Type<T>, typeCheck?: (value: unknown) => value is T): asserts value is T
+    {
+        return Test.assertInstanceOf(this, value, type, typeCheck);
+    }
+
+    /**
+     * Assert that the provided value is an instance of the provided {@link Type}.
+     * @param value The value to check.
+     * @param type The {@link Type} to check.
+     * @param expression The expression that produced the value.
+     * @param message An optional error message.
+     */
+    public static assertInstanceOf<T>(test: Test, value: unknown, type: Type<T>, typeCheck?: (value: unknown) => value is T): asserts value is T
+    {
+        Pre.condition.assertNotUndefinedAndNotNull(type, "type");
+
+        if (isUndefinedOrNull(typeCheck))
+        {
+            typeCheck = ((value: unknown) => value instanceof type) as (value: unknown) => value is T;
+        }
+
+        if (!typeCheck(value))
+        {
+            test.fail(`Expected value to be of type ${type.name} but found ${value} instead.`);
+        }
+    }
 }
