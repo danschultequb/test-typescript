@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/everyonesoftware/test-typescript"
   },
-  "version": "14.0.0",
+  "version": "15.0.0",
   "module": "outputs/package/index.esm.js",
   "main": "outputs/package/index.js",
   "types": "outputs/package/index.d.ts",
@@ -25,7 +25,7 @@
     "test": "npm run build && npm run just-tests"
   },
   "dependencies": {
-    "@everyonesoftware/base-typescript": "27.0.0"
+    "@everyonesoftware/base-typescript": "28.0.0"
   },
   "devDependencies": {
     "@everyonesoftware/mocha-typescript": "15.0.0",
